@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { removeUserSession } from '../utils/common';
+import { useHistory } from 'react-router-dom';
+
 import {
   Collapse,
   Navbar,
@@ -11,13 +14,20 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText
+  NavbarText,
+  Button
 } from 'reactstrap';
 
 const NavBar = props => {
+  const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+  // handle click event of logout button
+  const handleLogout = () => {
+    removeUserSession();
+    history.push('/login');
+  };
 
   return (
     <>
@@ -53,7 +63,14 @@ const NavBar = props => {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-          <NavbarText>Login</NavbarText>
+          <NavbarText className="ntext">Welcome</NavbarText>
+          <Button
+            className="navbarButton"
+            onClick={handleLogout}
+            value="Logout"
+          >
+            Logout
+          </Button>
         </Collapse>
       </Navbar>
     </>

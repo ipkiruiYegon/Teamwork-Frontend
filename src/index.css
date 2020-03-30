@@ -7,8 +7,17 @@
   color: whitesmoke;
 }
 
+.navbarButton {
+  background-color: #33b5e5;
+  border: none;
+}
+
 .navlink {
   color: yellow;
+}
+
+.ntext {
+  margin-right: 0.5rem;
 }
 
 .navlink {
@@ -53,6 +62,49 @@
   color: #ffffff;
   font-size: 12px;
   padding: 15px;
+}
+
+.login {
+  text-align: left;
+  padding: 1em;
+  margin: 1em;
+  border: 2px solid #d3d3d3;
+  border-radius: 0.5em;
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  margin-top: 100px;
+}
+
+.form {
+  padding: 1em;
+}
+
+label {
+  display: flex;
+  font-weight: 600;
+}
+
+button {
+  justify-content: flex-end;
+}
+
+.login-title {
+  font-size: 1.5em;
+}
+
+.login-intro {
+  font-size: large;
+}
+
+@keyframes login-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media only screen and (max-width: 768px) {

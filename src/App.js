@@ -1,19 +1,20 @@
 import React from 'react';
-
-import NavBar from './components/Navbar';
-import Sidenav from './components/sidenav';
-import Maincontent from './components/main';
-import Footer from './components/footer';
+import { BrowserRouter, Switch } from 'react-router-dom';
+import Home from './components/home';
+import Login from './pages/login';
+import PrivateRoute from './utils/protectedRoutes';
+import PublicRoute from './utils/publicRoute';
+//import { getToken, removeUserSession, setUserSession } from './utils/common';
 
 const App = () => {
   return (
     <>
-      <NavBar />
-      <div className="main">
-        <Sidenav />
-        <Maincontent />
-      </div>
-      <Footer />
+      <BrowserRouter>
+        <Switch>
+          <PublicRoute path="/login" name="login" component={Login} />
+          <PrivateRoute exact path="/home" name="home" component={Home} />
+        </Switch>
+      </BrowserRouter>
     </>
   );
 };
